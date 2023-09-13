@@ -1,0 +1,29 @@
+<div class="login-page">
+    <main>
+
+        <div class="login-block">
+            <img class="logo" src="../../../assets/img/tk.png" alt="Scanfcode">
+            <h1>Login</h1>
+
+            <form action="#" [formGroup]="loginForm">
+
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" name="email" placeholder="Endereço de email" formControlName="email">
+                    <label for="floatingInput">Endereço de email</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" name="password" placeholder="Escolha uma senha" formControlName="password">
+                    <label for="floatingPassword">Escolha uma senha</label>
+                </div>
+
+                <button class="btn btn-primary btn-block" (click)="login()">Entrar</button>
+
+            </form>
+        </div>
+
+        <div class="login-links">
+            <p class="text-center">Não possui uma conta? <a class="txt-brand">Cadastrar</a></p>
+        </div>
+
+    </main>
+</div>

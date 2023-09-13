@@ -7,20 +7,13 @@
 
             <form action="#" [formGroup]="loginForm">
 
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope ti-email"></i></span>
-                        <input type="text" class="form-control" name="email" placeholder="Endereço de email" formControlName="email">
-                    </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" name="email" placeholder="Endereço de email" formControlName="email">
+                    <label for="floatingInput">Endereço de email</label>
                 </div>
-
-                <hr class="hr-xs">
-
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock ti-unlock"></i></span>
-                        <input type="password" class="form-control" placeholder="Escolha uma senha" name="password" formControlName="password">
-                    </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" name="password" placeholder="Escolha uma senha" formControlName="password">
+                    <label for="floatingPassword">Escolha uma senha</label>
                 </div>
 
                 <button class="btn btn-primary btn-block" (click)="login()">Entrar</button>

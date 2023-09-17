@@ -48,8 +48,8 @@ export class LoginComponent {
       next: (data: any) => {
         if(data.status != undefined){
           localStorage.setItem('userId', data.user.id);
+          localStorage.setItem('userName', data.user.name);
           localStorage.setItem('token', data.token);
-          console.log(localStorage.getItem('token'))
           
           this.router.navigate(['home']);
         }

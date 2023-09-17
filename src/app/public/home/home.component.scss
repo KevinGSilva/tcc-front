@@ -10943,6 +10943,7 @@ header.masthead {
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  height: 100vh;
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
@@ -11074,7 +11075,7 @@ header.masthead .masthead-heading {
   width: 2px;
   margin-left: -1.5px;
   content: "";
-  background-color: #e9ecef;
+  background-color: #3E9EA4;
 }
 .timeline > li {
   position: relative;
@@ -11116,7 +11117,7 @@ header.masthead .masthead-heading {
   margin-left: 0;
   text-align: center;
   color: white;
-  border: 7px solid #e9ecef;
+  border: 7px solid #3E9EA4;
   border-radius: 100%;
   background-color: #0E8D94;
 }
@@ -11235,7 +11236,7 @@ header.masthead .masthead-heading {
 .team-member img {
   width: 14rem;
   height: 14rem;
-  border: 0.5rem solid rgba(0, 0, 0, 0.1);
+  border: 0.5rem solid #3E9EA4;
 }
 .team-member h4, .team-member .h4 {
   margin-top: 1.5rem;

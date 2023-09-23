@@ -1,0 +1,107 @@
+<div class="d-flex">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorRequest">
+        <strong>Ops!</strong>
+        <div  *ngIf="validationMessage">
+                <p>{{validationMessage}}</p>
+        </div>
+        <div *ngFor="let item of errorRequestMessage; let first = first;">
+            <p *ngIf="first">{{item.value}}</p>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="errorRequest = false; validationMessage = ''"></button>
+    </div>
+</div>
+<div class="login-page">
+    <main>
+
+        <div class="login-block">
+            <img class="logo" src="../../../assets/img/tk.png" alt="Scanfcode">
+            <h1>Cadastro</h1>
+
+            <form action="#" [formGroup]="registerForm">
+
+                <div class="col-md-12">
+                    <div class="row gy-2">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="name" placeholder="Nome"
+                                    formControlName="name"
+                                    [ngClass]="{'error': registerForm.get('name')?.invalid && (registerForm.get('name')?.dirty || registerForm.get('name')?.touched)}">
+                                <label for="floatingInput">Nome*</label>
+                                <div *ngIf="registerForm.get('name')?.invalid && (registerForm.get('name')?.dirty || registerForm.get('name')?.touched)"
+                                    class="error-message">
+                                    <!-- Exiba a mensagem de erro aqui -->
+                                    <span *ngIf="registerForm.get('name')?.hasError('required')">Campo
+                                        obrigatório.</span>
+                                    <span *ngIf="registerForm.get('name')?.hasError('minlength')">Nome deve ter no
+                                        mínimo 4 caracteres.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating"
+                                [ngClass]="{'error': registerForm.get('document')?.invalid && (registerForm.get('document')?.dirty || registerForm.get('document')?.touched)}">
+                                <input type="text" class="form-control" name="document" placeholder="Documento"
+                                    formControlName="document" mask="000.000.000-00||00.000.000/0000-00"
+                                    [ngClass]="{'error': registerForm.get('document')?.invalid && (registerForm.get('document')?.dirty || registerForm.get('document')?.touched)}">
+                                <label for="floatingInput">Documento*</label>
+                                <div *ngIf="registerForm.get('document')?.invalid && (registerForm.get('document')?.dirty || registerForm.get('document')?.touched)"
+                                    class="error-message">
+                                    <span *ngIf="registerForm.get('document')?.hasError('required')">Campo
+                                        obrigatório.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" name="email" placeholder="Endereço de email"
+                                    formControlName="email"
+                                    [ngClass]="{'error': registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)}">
+                                <label for="floatingInput">Endereço de email*</label>
+                                <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)"
+                                    class="error-message">
+                                    <span *ngIf="registerForm.get('email')?.hasError('required')">Campo
+                                        obrigatório.</span>
+                                    <span *ngIf="registerForm.get('email')?.hasError('email')">Digite um endereço de
+                                        email válido.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" name="emailCheck" placeholder="Confirmar email">
+                                <label for="floatingInput">Confirme o email*</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="password" class="form-control" name="password" placeholder="Senha" formControlName="password" [ngClass]="{'error': registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)}">
+                                <label for="floatingInput">Senha*</label>
+                                <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)"
+                                    class="error-message">
+                                    <span *ngIf="registerForm.get('password')?.hasError('required')">Campo
+                                        obrigatório.</span>
+                                    <span *ngIf="registerForm.get('password')?.hasError('minlength')">Senha deve ter no
+                                        mínimo 6 caracteres.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="password" class="form-control" name="passwordCheck" placeholder="Escolha uma senha">
+                                <label for="floatingPassword">Confirme a senha*</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-block" (click)="register()" (click)="this.loader.start()">Continuar</button>
+
+            </form>
+        </div>
+
+        <div class="login-links">
+            <p class="text-center">Já possui uma conta? <a class="txt-brand" href="auth/login">Login</a></p>
+        </div>
+
+    </main>
+</div>

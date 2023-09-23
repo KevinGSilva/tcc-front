@@ -1,6 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -10,12 +12,15 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   standalone: true,
   imports:[
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ]
 })
 export class LoginComponent {
   email: any;
   password: any;
+  errorRequest: boolean = false;
+  errorRequestMessage?: any;
 
   loginForm = this.formBuilder.group({
     email: [undefined, [
@@ -32,15 +37,19 @@ export class LoginComponent {
   constructor(
       private authSvc: AuthService,
       private formBuilder: UntypedFormBuilder,
-      private router: Router
+      private router: Router,
+      private loadingBar: LoadingBarService
     ){
   }
 
   login(){
-    
+    this.loadingBar.start()
     if(this.loginForm.invalid){
 
-      alert(`Por favor informe o e-mail e a senha.`);
+
+      this.loadingBar.complete();
+      this.errorRequest = true;
+      this.errorRequestMessage = 'Por favor informe o e-mail e a senha.'
       return;
     }
     localStorage.clear()
@@ -51,11 +60,14 @@ export class LoginComponent {
           localStorage.setItem('userName', data.user.name);
           localStorage.setItem('token', data.token);
           
+          this.loadingBar.complete()
           this.router.navigate(['home']);
         }
       },
       error: (error: any) => {
-        alert(error.error.message);
+        this.errorRequest = true;
+        this.errorRequestMessage = error.error.message
+        this.loadingBar.complete();
       }
       
     });

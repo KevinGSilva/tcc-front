@@ -50,7 +50,7 @@ export class RegisterComponent {
   }
 
   register(){
-    this.loadingBar.start
+    this.loadingBar.start()
     if(this.registerForm.invalid){
       this.validationMessage = 'Preencha todos os campos!'
       this.errorRequest = true
@@ -61,8 +61,8 @@ export class RegisterComponent {
     this.registerSvc.resgister(this.registerForm.value).subscribe({
       next: (data: any) => {
         if(data.status != undefined){
-          this.loadingBar.complete
-          this.router.navigate(['home']);
+          this.loadingBar.complete()
+          this.router.navigate(['auth/login']);
         }
       },
       error: (error: any) => {
@@ -72,7 +72,7 @@ export class RegisterComponent {
 
         const mapped = Object.entries(error.error.message).map(([type, value]) => ({type, value}));
 
-        this.loadingBar.complete
+        this.loadingBar.complete()
         this.errorRequestMessage = mapped
       }
       

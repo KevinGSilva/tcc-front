@@ -31,4 +31,12 @@ export class AuthService {
       })
     );  
   }
+
+  isEmailVerified(): boolean {
+    let verified = localStorage.getItem('emailVerified')
+    if(verified !== 'null') {
+      return true;
+    }
+    return false;
+  }
 }

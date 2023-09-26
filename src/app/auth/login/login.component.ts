@@ -59,6 +59,8 @@ export class LoginComponent {
           localStorage.setItem('userId', data.user.id);
           localStorage.setItem('userName', data.user.name);
           localStorage.setItem('token', data.token);
+          localStorage.setItem('emailVerified', data.user.email_verified_at);
+          localStorage.setItem('userType', data.user.user_type);
           
           this.loadingBar.complete()
           this.router.navigate(['home']);

@@ -17,7 +17,7 @@ export class EmailVerificationGuard implements CanActivate {
       return true;
     } else {
       // Redireciona para uma página de erro ou para a página de verificação de email
-      this.router.navigate(['auth/login']);
+      this.router.navigate(['verify-email']);
       return false;
     }
   }

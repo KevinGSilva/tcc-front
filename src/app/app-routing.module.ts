@@ -9,10 +9,10 @@ import { EmailValidationComponent } from './auth/email-validation/email-validati
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path:'home', component: HomeComponent, canActivate: [EmailVerificationGuard] },
+  { path:'home', component: HomeComponent, },
   { path:'auth/login', component: LoginComponent },
   { path:'register', component: RegisterComponent },
-  { path:'verify-email', component: EmailValidationComponent },
+  { path:'verify-email', component: EmailValidationComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

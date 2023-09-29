@@ -11,17 +11,13 @@
             <form action="#" [formGroup]="loginForm">
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" name="code" placeholder="Endereço de code" formControlName="code">
+                    <input type="text" class="form-control" name="code" placeholder="Código de verificação" formControlName="code" [(ngModel)]="code">
                     <label for="floatingInput">Código de verificação</label>
                 </div>
 
-                <button class="btn btn-primary btn-block" (click)="postCode()">Entrar</button>
+                <button class="btn btn-primary btn-block" (click)="postCode()">Enviar</button>
 
             </form>
-        </div>
-
-        <div class="login-links">
-            <p class="text-center">Não possui uma conta? <a class="txt-brand">Cadastrar</a></p>
         </div>
 
     </main>

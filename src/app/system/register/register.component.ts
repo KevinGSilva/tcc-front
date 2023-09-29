@@ -21,7 +21,9 @@ export class RegisterComponent {
   errorRequestMessage?: any;
   validationMessage: string = '';
 
-  loader = this.loadingBar.useRef();
+  ngOnInit(){
+    this.loadingBar.complete()
+  }
 
   registerForm = this.formBuilder.group({
     name: [undefined, [
@@ -77,5 +79,10 @@ export class RegisterComponent {
       }
       
     });
+  }
+
+  toLogin(){
+    this.loadingBar.start()
+    this.router.navigate(['auth/login'])
   }
 }

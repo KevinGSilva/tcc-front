@@ -22,6 +22,10 @@ export class LoginComponent {
   errorRequest: boolean = false;
   errorRequestMessage?: any;
 
+  ngOnInit(){
+    this.loadingBar.complete()
+  }
+
   loginForm = this.formBuilder.group({
     email: [undefined, [
       Validators.required,
@@ -73,5 +77,10 @@ export class LoginComponent {
       }
       
     });
+  }
+
+  register(){
+    this.loadingBar.start()
+    this.router.navigate(['register'])
   }
 }

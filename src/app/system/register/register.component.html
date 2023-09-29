@@ -94,13 +94,13 @@
                     </div>
                 </div>
 
-                <button class="btn btn-primary btn-block" (click)="register()" (click)="this.loader.start()">Continuar</button>
+                <button class="btn btn-primary btn-block" (click)="register()" >Continuar</button>
 
             </form>
         </div>
 
         <div class="login-links">
-            <p class="text-center">Já possui uma conta? <a class="txt-brand" href="auth/login">Login</a></p>
+            <p class="text-center">Já possui uma conta? <a class="txt-brand" (click)="toLogin()">Entrar</a></p>
         </div>
 
     </main>

@@ -18,7 +18,7 @@ export class EmailVerifyService {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
   });
 
-  login(code: string){
+  verifyCode(code: string){
 
     const options = { headers: this.headers };
 

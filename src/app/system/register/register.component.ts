@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingBarService } from '@ngx-loading-bar/core';
-import { toArray } from 'rxjs';
 import { RegisterService } from 'src/app/services/register/register.service';
 
 @Component({
@@ -14,12 +13,13 @@ export class RegisterComponent {
   name?: string;
   document?: string;
   email?: string;
-  emailCheck?: string;
   password?: string;
   passwordCheck?: string;
   errorRequest: boolean = false;
   errorRequestMessage?: any;
   validationMessage: string = '';
+  user_type: any = null;
+  passwordMismatch?: boolean;
 
   ngOnInit(){
     this.loadingBar.complete()
@@ -40,8 +40,25 @@ export class RegisterComponent {
     password: [undefined, [
       Validators.required,
       Validators.minLength(6)
+    ]],
+    passwordCheck: ['', [
+      Validators.required,
+    ]],
+    user_type: [undefined, [
+      Validators.required
     ]]
   });
+
+  passwordMatchValidator() {
+    const password = this.password;
+    const passwordCheck = this.passwordCheck;
+
+    if (password !== passwordCheck) {
+      return this.passwordMismatch = true;
+    }
+
+    return this.passwordMismatch= false ;
+  }
 
   constructor(
       private registerSvc: RegisterService,
@@ -56,6 +73,10 @@ export class RegisterComponent {
     if(this.registerForm.invalid){
       this.validationMessage = 'Preencha todos os campos!'
       this.errorRequest = true
+      this.loadingBar.complete()
+      return;
+    }
+    if(this.passwordMismatch){
       this.loadingBar.complete()
       return;
     }

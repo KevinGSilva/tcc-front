@@ -37,6 +37,23 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <label for="user_type" *ngIf="registerForm.get('user_type')?.value == null">Tipo de conta*</label>
+                                <select class="form-select form-select-lg form-control floatingInput" aria-label="Large select example"
+                                style="border: 1px #0e8d94 solid; border-radius: 10px; padding: 16px 10px;" name="user_type" formControlName="user_type" [ngModel]="user_type">
+                                    <option value='1'>Oferecer serviços</option>
+                                    <option value='2'>Buscar serviços</option>
+                                </select>
+                            </div>
+                    
+                            <div *ngIf="registerForm.get('user_type')?.invalid && (registerForm.get('user_type')?.dirty || registerForm.get('user_type')?.touched)"
+                                class="error-message">
+                                <!-- Exiba a mensagem de erro aqui -->
+                                <span *ngIf="registerForm.get('user_type')?.hasError('required')">Campo obrigatório.</span>
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-floating"
                                 [ngClass]="{'error': registerForm.get('document')?.invalid && (registerForm.get('document')?.dirty || registerForm.get('document')?.touched)}">
@@ -68,13 +85,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="email" class="form-control" name="emailCheck" placeholder="Confirmar email">
-                                <label for="floatingInput">Confirme o email*</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input type="password" class="form-control" name="password" placeholder="Senha" formControlName="password" [ngClass]="{'error': registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)}">
+                                <input type="password" class="form-control" name="password" placeholder="Senha" formControlName="password" [ngClass]="{'error': registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)}" [(ngModel)]="password">
                                 <label for="floatingInput">Senha*</label>
                                 <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)"
                                     class="error-message">
@@ -87,8 +98,14 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <input type="password" class="form-control" name="passwordCheck" placeholder="Escolha uma senha">
+                                <input type="password" class="form-control" name="passwordCheck" placeholder="Confirme a senha*" formControlName="passwordCheck" [(ngModel)]="passwordCheck" (change)="passwordMatchValidator()" [ngClass]="{'error': registerForm.get('passwordCheck')?.invalid && (registerForm.get('passwordCheck')?.dirty || registerForm.get('passwordCheck')?.touched) || passwordMismatch == true}">
                                 <label for="floatingPassword">Confirme a senha*</label>
+                                <div *ngIf="registerForm.get('passwordCheck')?.invalid && (registerForm.get('passwordCheck')?.dirty || registerForm.get('passwordCheck')?.touched)"
+                                    class="error-message">
+                                    <span *ngIf="registerForm.get('passwordCheck')?.hasError('required')">Campo
+                                        obrigatório.</span>
+                                </div>
+                                <span *ngIf="passwordMismatch" style="color:red"> As senhas não estão iguais.</span>
                             </div>
                         </div>
                     </div>

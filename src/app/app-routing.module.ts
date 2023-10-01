@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './public/home/home.component';
-import { LoginComponent } from './auth/login/login.component';
+import { HomeComponent } from './components/public/home/home.component';
+import { LoginComponent } from './components/auth/login/login.component';
 import { AuthGuard } from './services/auth/auth.guard';
-import { RegisterComponent } from './system/register/register.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 import { EmailVerificationGuard } from './services/auth/email-verification.guard';
-import { EmailValidationComponent } from './auth/email-validation/email-validation/email-validation.component';
+import { EmailValidationComponent } from './components/auth/email-validation/email-validation/email-validation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

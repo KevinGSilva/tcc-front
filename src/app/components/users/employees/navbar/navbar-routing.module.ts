@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from '../profile/profile.component';
-import { EmailVerificationGuard } from 'src/app/services/auth/email-verification.guard';
+import { EmailVerificationGuard } from 'src/app/services/auth/guards/email-verification.guard';
 import { NavbarComponent } from './navbar.component';
-import { AuthGuard } from 'src/app/services/auth/auth.guard';
+import { AuthGuard } from 'src/app/services/auth/guards/auth.guard';
 
 const routes: Routes = [
 

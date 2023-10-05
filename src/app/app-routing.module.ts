@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/public/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
-import { AuthGuard } from './services/auth/auth.guard';
+import { AuthGuard } from './services/auth/guards/auth.guard';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { EmailValidationComponent } from './components/auth/email-validation/email-validation/email-validation.component';
 import { NavbarRoutingModule } from './components/users/employees/navbar/navbar-routing.module';

@@ -39,4 +39,12 @@ export class AuthService {
     }
     return false;
   }
+
+  isEmployee(): boolean {
+    let userType = localStorage.getItem('userType')
+    if(userType == '1') {
+      return true;
+    }
+    return false;
+  }
 }

@@ -8,10 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterModule } from './components/auth/register/register.module';
 import { provideNgxMask } from 'ngx-mask';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { ProfileModule } from './components/users/employees/profile/profile.module';
+import { NavbarComponent } from './components/users/employees/navbar/navbar.component';
+import { NavbarRoutingModule } from './components/users/employees/navbar/navbar-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,7 +24,10 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
     HomeModule,
     HttpClientModule,
     RegisterModule,
-    LoadingBarModule
+    LoadingBarModule,
+    NavbarRoutingModule,
+    FormsModule,
+    ProfileModule,
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent]

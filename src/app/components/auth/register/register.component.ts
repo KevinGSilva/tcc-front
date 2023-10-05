@@ -20,6 +20,9 @@ export class RegisterComponent {
   validationMessage: string = '';
   user_type: any = null;
   passwordMismatch?: boolean;
+  successAlert?: string;
+  timeoutId: any;
+
 
   ngOnInit(){
     this.loadingBar.complete()
@@ -84,12 +87,19 @@ export class RegisterComponent {
     this.registerSvc.resgister(this.registerForm.value).subscribe({
       next: (data: any) => {
         if(data.status != undefined){
-          this.loadingBar.complete()
-          this.router.navigate(['auth/login']);
+          this.errorRequest = false
+          this.successAlert = 'Cadastro realizado com sucesso!';
+
+          this.timeoutId = setTimeout(() => {
+            this.router.navigate(['auth/login']);
+            this.loadingBar.complete()
+          }, 3 * 1000);
+
         }
       },
       error: (error: any) => {
         this.errorRequest = true;
+        this.validationMessage = ''
 
         console.log(error);
 
@@ -105,5 +115,14 @@ export class RegisterComponent {
   toLogin(){
     this.loadingBar.start()
     this.router.navigate(['auth/login'])
+  }
+
+  toHome(){
+    this.loadingBar.start()
+    this.router.navigate(['/'])
+  }
+
+  ngOnDestroy(){
+    clearTimeout(this.timeoutId);
   }
 }

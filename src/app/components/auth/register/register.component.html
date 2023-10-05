@@ -1,5 +1,5 @@
-<div class="d-flex">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorRequest">
+<div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert" *ngIf="errorRequest">
+    <div class="message">
         <strong>Ops!</strong>
         <div  *ngIf="validationMessage">
                 <p>{{validationMessage}}</p>
@@ -7,14 +7,17 @@
         <div *ngFor="let item of errorRequestMessage; let first = first;">
             <p *ngIf="first">{{item.value}}</p>
         </div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="errorRequest = false; validationMessage = ''"></button>
     </div>
+</div>
+<div class="alert alert-success d-flex align-items-center justify-content-center" role="alert" *ngIf="successAlert">
+    <i class="fa-solid fa-check me-2"></i>
+    <label for="">Perfil atualizado com sucesso!</label>
 </div>
 <div class="login-page">
     <main>
 
         <div class="login-block">
-            <img class="logo" src="../../../assets/img/tk.png" alt="Scanfcode">
+            <img class="logo" (click)="toHome()" src="../../../assets/img/tk.png" alt="Scanfcode">
             <h1>Cadastro</h1>
 
             <form action="#" [formGroup]="registerForm">
@@ -58,13 +61,14 @@
                             <div class="form-floating"
                                 [ngClass]="{'error': registerForm.get('document')?.invalid && (registerForm.get('document')?.dirty || registerForm.get('document')?.touched)}">
                                 <input type="text" class="form-control" name="document" placeholder="Documento"
-                                    formControlName="document" mask="000.000.000-00||00.000.000/0000-00"
+                                    formControlName="document" mask="000.000.000-00"
                                     [ngClass]="{'error': registerForm.get('document')?.invalid && (registerForm.get('document')?.dirty || registerForm.get('document')?.touched)}">
                                 <label for="floatingInput">Documento*</label>
                                 <div *ngIf="registerForm.get('document')?.invalid && (registerForm.get('document')?.dirty || registerForm.get('document')?.touched)"
                                     class="error-message">
                                     <span *ngIf="registerForm.get('document')?.hasError('required')">Campo
                                         obrigatório.</span>
+                                        <span *ngIf="registerForm.controls['document'].errors"> CPF incorreto.</span>
                                 </div>
                             </div>
                         </div>

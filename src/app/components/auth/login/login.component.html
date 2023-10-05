@@ -1,11 +1,16 @@
-<div class="alert alert-danger" role="alert" *ngIf="errorRequest">
-    <strong>Ops!</strong> {{errorRequestMessage}}.
+<div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert" *ngIf="errorRequest">
+    <div class="message">
+        <strong>Ops!</strong>
+        <div  *ngIf="errorRequestMessage">
+                <p>{{errorRequestMessage}}</p>
+        </div>
+    </div>
 </div>
 <div class="login-page">
     <main>
 
         <div class="login-block">
-            <img class="logo" src="../../../assets/img/tk.png" alt="Scanfcode">
+            <img class="logo" (click)="toHome()" src="../../../assets/img/tk.png" alt="Scanfcode">
             <h1>Login</h1>
 
             <form action="#" [formGroup]="loginForm">

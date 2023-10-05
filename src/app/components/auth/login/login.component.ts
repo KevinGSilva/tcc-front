@@ -88,4 +88,9 @@ export class LoginComponent {
     this.loadingBar.start()
     this.router.navigate(['register'])
   }
+
+  toHome(){
+    this.loadingBar.start()
+    this.router.navigate(['/'])
+  }
 }

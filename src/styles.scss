@@ -17,3 +17,11 @@ a {
   background: #0e8d94;
   border-color: #0e8d94;
 }
+
+
+.alert {
+  position: fixed;
+  top: 10px;
+  width: 100%;
+  z-index: 999;
+}

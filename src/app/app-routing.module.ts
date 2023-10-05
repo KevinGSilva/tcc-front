@@ -4,8 +4,8 @@ import { HomeComponent } from './components/public/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { AuthGuard } from './services/auth/auth.guard';
 import { RegisterComponent } from './components/auth/register/register.component';
-import { EmailVerificationGuard } from './services/auth/email-verification.guard';
 import { EmailValidationComponent } from './components/auth/email-validation/email-validation/email-validation.component';
+import { NavbarRoutingModule } from './components/users/employees/navbar/navbar-routing.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,7 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), NavbarRoutingModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

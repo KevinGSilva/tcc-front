@@ -2,3 +2,18 @@
 body{
   background-color:#e5e7ed
 }
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+.error-message span {
+  color: red;
+  font-size: small;
+}
+
+.btn-primary {
+  margin-top: 10px;
+  background: #0e8d94;
+  border-color: #0e8d94;
+}

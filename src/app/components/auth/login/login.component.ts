@@ -66,7 +66,12 @@ export class LoginComponent {
           localStorage.setItem('emailVerified', data.user.email_verified_at);
           localStorage.setItem('userType', data.user.user_type);
           
-          this.loadingBar.complete()
+          this.loadingBar.complete();
+          if (localStorage.getItem('userType') == '1'){
+            this.router.navigate(['employee']);
+            return;
+          }
+          console.log('Tipo: ' + localStorage.getItem('userType'))
           this.router.navigate(['home']);
         }
       },

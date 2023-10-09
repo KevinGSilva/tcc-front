@@ -1,17 +1,25 @@
-<div class="alert alert-success d-flex align-items-center justify-content-center" role="alert" *ngIf="successAlert">
-    <i class="fa-solid fa-check me-2"></i>
-    <label for="">Perfil atualizado com sucesso!</label>
+<div class="alert alert-success" role="alert" *ngIf="successAlert">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="message">
+            <i class="fa-solid fa-check me-2"></i>
+            <label for="">Perfil atualizado com sucesso!</label>
+        </div>
+        <button type="button" (click)="clearAlerts()">X</button>
+    </div>
 </div>
 
-<div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert" *ngIf="errorRequest">
-    <div class="message">
-        <strong>Ops!</strong>
-        <div  *ngIf="validationMessage">
-                <p>{{validationMessage}}</p>
+<div class="alert alert-danger" role="alert" *ngIf="errorRequest">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="message">
+            <strong>Ops!</strong>
+            <div  *ngIf="validationMessage">
+                    <p>{{validationMessage}}</p>
+            </div>
+            <div *ngFor="let item of errorRequestMessage; let first = first;">
+                <p *ngIf="first">{{item.value}}</p>
+            </div>
         </div>
-        <div *ngFor="let item of errorRequestMessage; let first = first;">
-            <p *ngIf="first">{{item.value}}</p>
-        </div>
+        <button type="button" (click)="clearAlerts()">X</button>
     </div>
 </div>
   
@@ -24,10 +32,18 @@
             </ol>
           </nav>
     </div>
-    <form action="#" [formGroup]="updateForm" *ngIf="updateForm">
+    <form action="#" [formGroup]="updateForm" *ngIf="updateForm" enctype="multipart/form-data">
         <div class="row">
             <div class="card">
                 <div class="card-body">
+                    <div class="row">
+                            <div class="profile-photo">
+                                <div class="thumb">
+                                    <img [src]="user.thumb ? user.thumb : 'assets/img/default/thumb.jpg'" alt="" id="thumb" (click)="changePhoto()">
+                                    <input #thumbInput type="file" name="thumb" style="display: none;" (change)="handleImageUpload($event)" accept="image/*">
+                                </div>
+                            </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="mb-3">

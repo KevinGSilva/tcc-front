@@ -1,3 +1,27 @@
 .alert {
     top: 100px
 }
+
+.profile-photo {
+    display: flex;
+    justify-content: center;
+}
+
+.thumb {
+    width: 11em;
+    height: 11em;
+    margin-bottom: 3em;
+}
+
+.thumb img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 90px;
+    cursor: pointer;
+    border: 2px solid #0E8D94;
+}
+
+.alert button {
+    background: none;
+}

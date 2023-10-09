@@ -17,4 +17,5 @@ export interface User {
     user_type: number;
     created_at: Date;
     updated_at: Date;
+    thumb?: string;
 }

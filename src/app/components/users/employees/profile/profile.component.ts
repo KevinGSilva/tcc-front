@@ -1,9 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingBarService } from '@ngx-loading-bar/core';
 import { User } from 'src/app/interfaces/user';
-import { RegisterService } from 'src/app/services/register/register.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -47,6 +46,7 @@ export class ProfileComponent implements OnInit {
       phone_whatsapp: [this.user.phone_whatsapp],
       link_instagram: [this.user.link_instagram],
       link_facebook: [this.user.link_facebook],
+      thumb: [],
     });
     this.loadingBar.complete();
   }
@@ -57,6 +57,9 @@ export class ProfileComponent implements OnInit {
       const data: any = await this.userSvc.getUser().toPromise();
       if (data !== undefined) {
         this.user = data.employee;
+        if(data.employee.media.length > 0) {
+          this.user.thumb = data.employee.media[0].original_url;
+        }
       }
     } catch (error: any) {
       this.errorRequest = true;
@@ -85,16 +88,40 @@ export class ProfileComponent implements OnInit {
       error: (error: any) => {
         this.errorRequest = true;
         this.successAlert = false;
-        
-        const mapped = Object.entries(error.error.message).map(([type, value]) => ({type, value}));
-
         this.loadingBar.complete()
-        this.errorRequestMessage = mapped
+        
+        try{
+          const mapped = Object.entries(error.error.message).map(([type, value]) => ({type, value}));
+          this.errorRequestMessage = mapped
+        } catch{
+          this.validationMessage = 'Erro inesperado. Tente novamente mais tarde!'
+        }
+
       }
     })
   }
 
   ngOnDestroy(){
 
+  }
+  handleImageUpload(event: any) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        this.updateForm.patchValue({ thumb: reader.result });
+    };
+  }
+
+  clearAlerts(){
+    this.errorRequest = false;
+    this.successAlert = false;
+    this.validationMessage = ''
+  }
+
+  @ViewChild('thumbInput', { static: false }) thumbInput!: ElementRef;
+
+  changePhoto() {
+    this.thumbInput.nativeElement.click();
   }
 }

@@ -32,7 +32,6 @@ export class VerifyTokenService {
     // Verifique se o token está presente e não está expirado
     if (token) {
       const options = { headers: this.getHeaders() };
-      console.log(options);
       return this.http.get(this.baseUrl + '/auth/verify-token', options)
       .subscribe(
         (result) => {

@@ -32,7 +32,7 @@ export class UserService {
     );  
   }
 
-  updateUser(user: User){
+  updateUser(user: any){
     const options = { headers: this.headers };
 
     return this.http.put(this.baseUrl + '/employee/' + localStorage.getItem('userId'), user, options)

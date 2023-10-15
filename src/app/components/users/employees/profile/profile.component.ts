@@ -82,7 +82,6 @@ export class ProfileComponent implements OnInit {
           this.errorRequest = false;
           this.successAlert = true;
           this.loadingBar.complete();
-          this.router.navigate(['employee/profile'])
         }
       },
       error: (error: any) => {
@@ -108,8 +107,9 @@ export class ProfileComponent implements OnInit {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = () => {
+    reader.onload = (e: any) => {
         this.updateForm.patchValue({ thumb: reader.result });
+        this.user.thumb = e.target.result
     };
   }
 

@@ -4,6 +4,7 @@ import { ProfileComponent } from './profile.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+import { NavbarRoutingModule } from '../navbar/navbar-routing.module';
 
 
 
@@ -18,6 +19,7 @@ import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
     ReactiveFormsModule,
     NgxMaskDirective, 
     NgxMaskPipe,
+    NavbarRoutingModule
   ]
 })
 export class ProfileModule { }

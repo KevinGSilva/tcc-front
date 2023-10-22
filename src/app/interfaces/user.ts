@@ -3,6 +3,8 @@ export interface User {
     name: string;
     email: string;
     document: string;
+    description: string;
+    services: string;
     phone?: string;
     phone_whatsapp?: string;
     link_instagram?: string;

@@ -12,6 +12,7 @@ import { ProfileModule } from './components/users/employees/profile/profile.modu
 import { NavbarComponent } from './components/users/employees/navbar/navbar.component';
 import { NavbarRoutingModule } from './components/users/employees/navbar/navbar-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ServicesModule } from './components/users/employees/services/services.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     NavbarRoutingModule,
     FormsModule,
     ProfileModule,
+    ServicesModule,
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent]

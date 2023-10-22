@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { NavbarRoutingModule } from './navbar-routing.module';
 import { ProfileComponent } from '../profile/profile.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    NavbarRoutingModule
+    NavbarRoutingModule,
+    RouterModule
   ]
 })
 export class NavbarModule { }

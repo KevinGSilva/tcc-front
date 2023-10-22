@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 
@@ -10,7 +11,10 @@ export class AuthService {
 
   baseUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+              private http: HttpClient,
+              private router: Router
+            ) { }
 
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -46,5 +50,10 @@ export class AuthService {
       return true;
     }
     return false;
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/']);
   }
 }

@@ -47,6 +47,7 @@ export class ProfileComponent implements OnInit {
       link_instagram: [this.user.link_instagram],
       link_facebook: [this.user.link_facebook],
       thumb: [],
+      service_flag: 0
     });
     this.loadingBar.complete();
   }

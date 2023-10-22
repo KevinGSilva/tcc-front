@@ -67,12 +67,16 @@ export class LoginComponent {
           localStorage.setItem('userType', data.user.user_type);
           
           this.loadingBar.complete();
-          if (localStorage.getItem('userType') == '1'){
-            this.router.navigate(['employee']);
-            return;
+
+          switch (localStorage.getItem('userType')){
+            case '1':
+              this.router.navigate(['employee']);
+              break;
+            
+            case '2':
+              this.router.navigate(['home']);
+              break;
           }
-          console.log('Tipo: ' + localStorage.getItem('userType'))
-          this.router.navigate(['home']);
         }
       },
       error: (error: any) => {

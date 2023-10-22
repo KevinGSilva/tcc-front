@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfileComponent } from '../profile/profile.component';
+import { ProfileComponent } from '../employees/profile/profile.component';
 import { EmailVerificationGuard } from 'src/app/services/auth/guards/email-verification.guard';
 import { NavbarComponent } from './navbar.component';
 import { AuthGuard } from 'src/app/services/auth/guards/auth.guard';
-import { ServicesComponent } from '../services/services.component';
+import { ServicesComponent } from '../employees/services/services.component';
 
 const routes: Routes = [
 

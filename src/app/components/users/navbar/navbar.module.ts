@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NavbarRoutingModule } from './navbar-routing.module';
-import { ProfileComponent } from '../profile/profile.component';
+import { ProfileComponent } from '../employees/profile/profile.component';
 import { RouterModule } from '@angular/router';
 
 

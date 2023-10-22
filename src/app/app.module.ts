@@ -9,8 +9,8 @@ import { RegisterModule } from './components/auth/register/register.module';
 import { provideNgxMask } from 'ngx-mask';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { ProfileModule } from './components/users/employees/profile/profile.module';
-import { NavbarComponent } from './components/users/employees/navbar/navbar.component';
-import { NavbarRoutingModule } from './components/users/employees/navbar/navbar-routing.module';
+import { NavbarComponent } from './components/users/navbar/navbar.component';
+import { NavbarRoutingModule } from './components/users/navbar/navbar-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ServicesModule } from './components/users/employees/services/services.module';
 

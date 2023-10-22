@@ -1,5 +1,3 @@
-// auth.guard.ts
-
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { VerifyTokenService } from '../verify-token.service';

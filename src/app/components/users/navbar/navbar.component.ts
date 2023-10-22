@@ -10,9 +10,15 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class NavbarComponent {
   constructor(private authSvc: AuthService, private loaderSvc: LoadingBarService) {}
 
+  userType?: any;
+
   logout() {
     this.loaderSvc.start()
     this.authSvc.logout()
+  }
+
+  ngOnInit() {
+    this.userType = localStorage.getItem('userType');
   }
 
 }

@@ -49,8 +49,15 @@
                                 </textarea>
                             </div>
                         </div>
+
+                        <div class="col-md-4">
+                            <label for="city" class="form-label">Cidade que presta serviços</label>
+                            <select name="city" id="city" class="form-control" formControlName="city">
+                                <option [value]="item.nome" *ngFor="let item of cities" [selected]="item.nome === user.city">{{ item.nome }}</option>
+                            </select>                              
+                        </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-4">
                         <div class="col-md-8">
                             <div class="mb-3">
                                 <label for="services" class="form-label">Liste sobre os serviços que você oferece</label>
@@ -64,6 +71,8 @@
                                 </textarea>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                     </div>
                     <div class="row">
                         <div class="col">

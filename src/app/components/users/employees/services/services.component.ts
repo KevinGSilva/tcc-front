@@ -1,8 +1,10 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { Component} from '@angular/core';
+import { FormGroup, UntypedFormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingBarService } from '@ngx-loading-bar/core';
+import { City } from 'src/app/interfaces/city';
 import { User } from 'src/app/interfaces/user';
+import { CityService } from 'src/app/services/city.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -16,7 +18,7 @@ export class ServicesComponent {
     private formBuilder: UntypedFormBuilder,
     private router: Router,
     private loadingBar: LoadingBarService,
-
+    private citySvc: CityService
   ){}
 
   user: User = {} as User
@@ -25,14 +27,17 @@ export class ServicesComponent {
   validationMessage: string = '';
   updateForm!: FormGroup;
   successAlert?: boolean;
+  cities!: Array<City>;
 
 
   async ngOnInit(){
     this.loadingBar.start();
     await this.getProfile();
+    await this.returnCities();
     this.updateForm = this.formBuilder.group({
       description: [this.user.description],
       services: [this.user.services],
+      city: [this.user.city],
       service_flag: 1,
     });
     this.loadingBar.complete();
@@ -95,5 +100,19 @@ export class ServicesComponent {
     this.errorRequest = false;
     this.successAlert = false;
     this.validationMessage = ''
+  }
+
+  async returnCities() {
+    
+    try {
+      const data: any = this.citySvc.getCities().subscribe(
+        (result) => {
+          this.cities = result as Array<City>;
+        }
+      );
+    } catch (error: any) {
+      this.errorRequest = true;
+      this.errorRequestMessage = error.error.message;
+    }
   }
 }

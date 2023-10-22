@@ -1,0 +1,77 @@
+<div class="alert alert-success" role="alert" *ngIf="successAlert">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="message">
+            <i class="fa-solid fa-check me-2"></i>
+            <label for="">Perfil atualizado com sucesso!</label>
+        </div>
+        <button type="button" (click)="clearAlerts()">X</button>
+    </div>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="errorRequest">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="message">
+            <strong>Ops!</strong>
+            <div  *ngIf="validationMessage">
+                    <p>{{validationMessage}}</p>
+            </div>
+            <div *ngFor="let item of errorRequestMessage; let first = first;">
+                <p *ngIf="first">{{item.value}}</p>
+            </div>
+        </div>
+        <button type="button" (click)="clearAlerts()">X</button>
+    </div>
+</div>
+  
+<div class="container">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">Sobre você</li>
+            </ol>
+          </nav>
+    </div>
+    <form action="#" [formGroup]="updateForm" *ngIf="updateForm" enctype="multipart/form-data">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Faça uma breve descrição sobre você</label>
+                                <textarea class="form-control" 
+                                    id="description" 
+                                    name="description" 
+                                    formControlName="description" 
+                                    [ngClass]="{'error': updateForm.get('description')?.invalid && (updateForm.get('description')?.dirty || updateForm.get('description')?.touched)}" 
+                                    rows="3"
+                                >
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <label for="services" class="form-label">Liste sobre os serviços que você oferece</label>
+                                <textarea class="form-control" 
+                                    id="services" 
+                                    name="services"
+                                    formControlName="services" 
+                                    [ngClass]="{'error': updateForm.get('services')?.invalid && (updateForm.get('services')?.dirty || updateForm.get('services')?.touched)}"
+                                    rows="7"
+                                >
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-primary" (click)="updateProfile()">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

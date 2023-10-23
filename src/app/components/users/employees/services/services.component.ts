@@ -46,7 +46,7 @@ export class ServicesComponent {
   async getProfile()
   {
     try {
-      const data: any = await this.userSvc.getUser().toPromise();
+      const data: any = await this.userSvc.getEmployee().toPromise();
       if (data !== undefined) {
         this.user = data.employee;
         if(data.employee.media.length > 0) {
@@ -68,7 +68,7 @@ export class ServicesComponent {
       
       return;
     }
-    this.userSvc.updateUser(this.updateForm.value).subscribe({
+    this.userSvc.updateEmployee(this.updateForm.value).subscribe({
       next: (data: any)=>{
         if(data.status != undefined){
           this.errorRequest = false;

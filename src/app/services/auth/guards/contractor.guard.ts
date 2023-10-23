@@ -5,18 +5,19 @@ import { AuthService } from '../auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeGuard implements CanActivate{
+
+export class ContractorGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.authService.isEmployee()) {
+    if (this.authService.isContractor()) {
       return true;
     } else {
-      this.router.navigate(['contractor']);
+      this.router.navigate(['employee']);
       return false;
     }
   }
-}
+};

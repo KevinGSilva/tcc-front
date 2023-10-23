@@ -52,6 +52,14 @@ export class AuthService {
     return false;
   }
 
+  isContractor(): boolean {
+    let userType = localStorage.getItem('userType')
+    if(userType == '2') {
+      return true;
+    }
+    return false;
+  }
+
   logout() {
     localStorage.clear();
     this.router.navigate(['/']);

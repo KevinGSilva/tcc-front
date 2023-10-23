@@ -5,6 +5,9 @@ import { EmailVerificationGuard } from 'src/app/services/auth/guards/email-verif
 import { NavbarComponent } from './navbar.component';
 import { AuthGuard } from 'src/app/services/auth/guards/auth.guard';
 import { ServicesComponent } from '../employees/services/services.component';
+import { ProfileContractorComponent } from '../contractors/profile-contractor/profile-contractor.component';
+import { EmployeeGuard } from 'src/app/services/auth/guards/employee.guard';
+import { ContractorGuard } from 'src/app/services/auth/guards/contractor.guard';
 
 const routes: Routes = [
 
@@ -12,7 +15,11 @@ const routes: Routes = [
     {path: '', redirectTo: 'profile', pathMatch: 'full'},
     {path: 'profile', component: ProfileComponent, canActivate: [ AuthGuard ,EmailVerificationGuard]},
     {path: 'services', component: ServicesComponent, canActivate: [ AuthGuard ,EmailVerificationGuard]},
-  ]},
+  ], canActivate: [EmployeeGuard]},
+  {path: 'contractor', component: NavbarComponent, children: [
+    {path: '', redirectTo: 'profile', pathMatch: 'full'},
+    {path: 'profile', component: ProfileContractorComponent, canActivate: [ AuthGuard ,EmailVerificationGuard]},
+  ], canActivate: [ContractorGuard]},
 ];
 
 @NgModule({

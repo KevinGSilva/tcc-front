@@ -74,7 +74,7 @@ export class LoginComponent {
               break;
             
             case '2':
-              this.router.navigate(['home']);
+              this.router.navigate(['contractor']);
               break;
           }
         }

@@ -18,7 +18,7 @@ export class UserService {
     'Authorization': 'Bearer ' + localStorage.getItem('token')
   });
 
-  getUser(){
+  getEmployee(){
     const options = { headers: this.headers };
 
     return this.http.get(this.baseUrl + '/employee/' + localStorage.getItem('userId'), options)
@@ -32,10 +32,38 @@ export class UserService {
     );  
   }
 
-  updateUser(user: any){
+  updateEmployee(user: any){
     const options = { headers: this.headers };
 
     return this.http.put(this.baseUrl + '/employee/' + localStorage.getItem('userId'), user, options)
+    .pipe(
+      map((data: any) => {
+          if (data.status != "success") {
+              throw new Error(data.message);
+          }
+          return data;
+      })
+    );  
+  }
+
+  getContractor(){
+    const options = { headers: this.headers };
+
+    return this.http.get(this.baseUrl + '/contractor/' + localStorage.getItem('userId'), options)
+    .pipe(
+      map((data: any) => {
+          if (data.status != "success") {
+              throw new Error(data.message);
+          }
+          return data;
+      })
+    );  
+  }
+
+  updateContractor(user: any){
+    const options = { headers: this.headers };
+
+    return this.http.put(this.baseUrl + '/contractor/' + localStorage.getItem('userId'), user, options)
     .pipe(
       map((data: any) => {
           if (data.status != "success") {

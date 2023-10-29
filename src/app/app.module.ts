@@ -14,6 +14,7 @@ import { NavbarRoutingModule } from './components/users/navbar/navbar-routing.mo
 import { FormsModule } from '@angular/forms';
 import { ServicesModule } from './components/users/employees/services/services.module';
 import { ProfileContractorModule } from './components/users/contractors/profile-contractor/profile-contractor.module';
+import { IndexModule } from './components/users/contractors/index/index.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProfileContractorModule } from './components/users/contractors/profile-
     FormsModule,
     ProfileModule,
     ServicesModule,
-    ProfileContractorModule
+    ProfileContractorModule,
+    IndexModule
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent]

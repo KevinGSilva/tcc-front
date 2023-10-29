@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-md-4 d-flex">
             <div class="input-group flex-nowrap">
-                <input type="text" class="form-control" placeholder="Busque por serviços" aria-label="Username" aria-describedby="addon-wrapping">
-                <span class="input-group-text" id="addon-wrapping" style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" class="form-control" placeholder="Busque por serviços" aria-label="Busque por serviços" aria-describedby="addon-wrapping" [(ngModel)]="search">
+                <span class="input-group-text" id="addon-wrapping" style="cursor: pointer;" (click)="filter()"><i class="fa-solid fa-magnifying-glass"></i></span>
             </div>
         </div>
     </div>

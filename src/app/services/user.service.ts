@@ -32,10 +32,10 @@ export class UserService {
     );  
   }
 
-  getAllEmployee(){
+  getAllEmployee(search: string, selectedCity = null){
     const options = { headers: this.headers };
 
-    return this.http.get(this.baseUrl + '/employee', options)
+    return this.http.get(this.baseUrl + '/employee?services=' + search + '&city=' + selectedCity, options)
     .pipe(
       map((data: any) => {
           if (data.status != "success") {

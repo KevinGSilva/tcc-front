@@ -17,6 +17,7 @@ export class IndexComponent {
   employees: User[] = [];
   errorRequest?: any;
   errorRequestMessage?: any;
+  search: string = '';
 
   ngOnInit(){
     this.loadingBar.start();
@@ -24,7 +25,7 @@ export class IndexComponent {
   }
 
   async getAllEmployees(){
-    this.userSvc.getAllEmployee().subscribe(
+    this.userSvc.getAllEmployee(this.search).subscribe(
       {
         next: (result) => {
           this.employees = result.employees;
@@ -37,5 +38,10 @@ export class IndexComponent {
         }
       }
     );
+  }
+
+  filter() {
+    this.loadingBar.start()
+    this.getAllEmployees()
   }
 }

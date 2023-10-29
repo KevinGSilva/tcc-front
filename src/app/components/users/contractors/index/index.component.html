@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 d-flex">
+            <div class="input-group flex-nowrap">
+                <input type="text" class="form-control" placeholder="Busque por serviços" aria-label="Username" aria-describedby="addon-wrapping">
+                <span class="input-group-text" id="addon-wrapping" style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 gy-3">
+        <div class="col-lg-4 col-md-6 d-flex" *ngFor="let employee of employees">
+            <div class="content d-flex">
+                <div class="thumb">
+                    <img [src]="employee.url ? employee.url : 'assets/img/default/thumb.jpg'" alt="...">
+                </div>
+                
+                <div class="card-body">
+                  <h5 class="card-title">{{ employee.name }}</h5>
+                  <p class="card-text">{{ employee.services ? (employee.services | slice:0:55)+ '...' : '' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

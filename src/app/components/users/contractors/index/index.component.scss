@@ -1,0 +1,22 @@
+.content{
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    border: .5px solid #0E8D94;
+    cursor: pointer;
+}
+.thumb {
+    width: 90px;
+    height: 90px;
+}
+.thumb img{
+    object-fit: cover;
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+}
+.card-body {
+    margin-left: 5px;
+}
+  

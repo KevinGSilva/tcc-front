@@ -1,3 +1,5 @@
+import { Media } from "./media";
+
 export interface User {
     id: number;
     name: string;
@@ -20,4 +22,5 @@ export interface User {
     created_at: Date;
     updated_at: Date;
     thumb?: string;
+    url?: string;
 }

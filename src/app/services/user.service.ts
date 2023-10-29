@@ -32,6 +32,20 @@ export class UserService {
     );  
   }
 
+  getAllEmployee(){
+    const options = { headers: this.headers };
+
+    return this.http.get(this.baseUrl + '/employee', options)
+    .pipe(
+      map((data: any) => {
+          if (data.status != "success") {
+              throw new Error(data.message);
+          }
+          return data;
+      })
+    );  
+  }
+
   updateEmployee(user: any){
     const options = { headers: this.headers };
 

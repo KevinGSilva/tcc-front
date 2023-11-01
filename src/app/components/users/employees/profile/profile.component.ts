@@ -125,4 +125,9 @@ export class ProfileComponent implements OnInit {
   changePhoto() {
     this.thumbInput.nativeElement.click();
   }
+
+  teste(message: string){
+    console.log('teste')
+    alert(message)
+  }
 }

@@ -87,4 +87,18 @@ export class UserService {
       })
     );  
   }
+
+  getEmployeeProfile(id: any){
+    const options = { headers: this.headers };
+
+    return this.http.get(this.baseUrl + '/employee/' + id, options)
+    .pipe(
+      map((data: any) => {
+          if (data.status != "success") {
+              throw new Error(data.message);
+          }
+          return data;
+      })
+    );  
+  }
 }

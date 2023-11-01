@@ -1,0 +1,23 @@
+.description .title, .services .title {
+    margin-bottom: 5px;
+  font-weight: bold;
+  color: silver;
+}
+
+.thumb {
+    width: 200px;
+    height: 200px;
+}
+.thumb img{
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #0E8D94;
+    border-radius: 100%;
+}
+
+.icon-social {
+    font-size: 25px;
+    color: #0E8D94;
+    cursor: pointer;
+}

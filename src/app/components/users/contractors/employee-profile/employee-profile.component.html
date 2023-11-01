@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">Perfil</li>
+            </ol>
+          </nav>
+    </div>
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="col-12 mb-3">
+                            <div class="profile-photo d-flex justify-content-center">
+                                <div class="thumb">
+                                    <img [src]="user.thumb ? user.thumb : 'assets/img/default/thumb.jpg'" alt="" id="thumb">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex justify-content-evenly mb-3">
+                            <a href="https://wa.me/+55{{user.phone_whatsapp}}" target="_blank" *ngIf="user.phone_whatsapp" title="Conversar no Whatsapp"><i class="fa-brands fa-whatsapp fa-beat fa-2xs icon-social"></i></a>
+                            <a href="{{user.link_facebook}}" target="_blank" *ngIf="user.link_facebook" title="Conversar no Facebook"><i class="fa-brands fa-facebook fa-beat fa-2xs icon-social"></i></a>
+                            <a href="{{user.link_instagram.length > 0}}" target="_blank" *ngIf="user.link_instagram" title="Conversar no Instagram"><i class="fa-brands fa-instagram fa-beat fa-2xs icon-social"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="employee-name text-center">
+                            <h2>Nome da muié Da Silva</h2>
+                        </div>
+                        <div class="description" *ngIf="user.description">
+                            <p class="title">Descricação:</p>
+                            <p class="employee-description">{{ user.description }}</p>
+                        </div>
+
+                        <div class="services" *ngIf="user.services">
+                            <p class="title">Serviços: </p>
+                            <p style="white-space: pre-line;">{{ user.services }}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

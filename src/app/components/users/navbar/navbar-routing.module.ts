@@ -9,6 +9,7 @@ import { ProfileContractorComponent } from '../contractors/profile-contractor/pr
 import { EmployeeGuard } from 'src/app/services/auth/guards/employee.guard';
 import { ContractorGuard } from 'src/app/services/auth/guards/contractor.guard';
 import { IndexComponent } from '../contractors/index/index.component';
+import { EmployeeProfileComponent } from '../contractors/employee-profile/employee-profile.component';
 
 const routes: Routes = [
 
@@ -21,6 +22,7 @@ const routes: Routes = [
     {path: '', redirectTo: 'index', pathMatch: 'full'},
     {path: 'index', component: IndexComponent, canActivate: [ AuthGuard ,EmailVerificationGuard]},
     {path: 'profile', component: ProfileContractorComponent, canActivate: [ AuthGuard ,EmailVerificationGuard]},
+    {path: 'employee/:id', component: EmployeeProfileComponent, canActivate: [ AuthGuard ,EmailVerificationGuard]},
   ], canActivate: [ContractorGuard]},
 ];
 

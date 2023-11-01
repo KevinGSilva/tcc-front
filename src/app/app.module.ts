@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { ServicesModule } from './components/users/employees/services/services.module';
 import { ProfileContractorModule } from './components/users/contractors/profile-contractor/profile-contractor.module';
 import { IndexModule } from './components/users/contractors/index/index.module';
+import { EmployeeProfileModule } from './components/users/contractors/employee-profile/employee-profile.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { IndexModule } from './components/users/contractors/index/index.module';
     ProfileModule,
     ServicesModule,
     ProfileContractorModule,
-    IndexModule
+    IndexModule,
+    EmployeeProfileModule
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent]

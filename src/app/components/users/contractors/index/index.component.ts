@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoadingBarService } from '@ngx-loading-bar/core';
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
@@ -12,6 +13,7 @@ export class IndexComponent {
   constructor(
               private userSvc: UserService,
               private loadingBar: LoadingBarService,
+              private router: Router
             ){}
 
   employees: User[] = [];
@@ -43,5 +45,10 @@ export class IndexComponent {
   filter() {
     this.loadingBar.start()
     this.getAllEmployees()
+  }
+
+  toEmployeeProfile(id: number) {
+    this.loadingBar.start()
+    this.router.navigate(['contractor/employee/' + id]);
   }
 }

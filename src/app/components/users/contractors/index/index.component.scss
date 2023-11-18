@@ -7,16 +7,20 @@
     cursor: pointer;
 }
 .thumb {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
 }
 .thumb img{
     object-fit: cover;
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     border-radius: 10px;
 }
 .card-body {
     margin-left: 5px;
 }
-  
+
+.star-ratingg {
+    width: fit-content;
+    display: inline-block;
+}

@@ -1,5 +1,11 @@
 <div class="container">
     <div class="row">
+        <div class="col-md-3">
+            <select name="city" id="city" class="form-control" [(ngModel)]="city" (change)="getAllEmployees()">
+                <option value="" [selected]="true">Todas as cidades</option>
+                <option [value]="item.nome" *ngFor="let item of cities">{{ item.nome }}</option>
+            </select>                              
+        </div>
         <div class="col-md-4 d-flex">
             <div class="input-group flex-nowrap">
                 <input type="text" class="form-control" placeholder="Busque por serviços" aria-label="Busque por serviços" aria-describedby="addon-wrapping" [(ngModel)]="search">
@@ -11,12 +17,13 @@
         <div class="col-lg-4 col-md-6 d-flex" *ngFor="let employee of employees">
             <div class="content d-flex" (click)="toEmployeeProfile(employee.id)">
                 <div class="thumb">
-                    <img [src]="employee.url ? employee.url : 'assets/img/default/thumb.jpg'" alt="...">
+                    <img [src]="employee.url ? employee.url : 'assets/img/default/thumb.jpg'">
                 </div>
                 
                 <div class="card-body">
                   <h5 class="card-title">{{ employee.name }}</h5>
-                  <p class="card-text">{{ employee.services ? (employee.services | slice:0:55)+ '...' : '' }}</p>
+                  <p class="card-text m-0">{{ employee.services ? (employee.services | slice:0:55)+ '...' : '' }}</p>
+                  <star-rating [starType]="'svg'" [rating]="employee.rating_average" [readOnly]="true" staticColor="ok" class="star-ratingg"></star-rating>
                 </div>
             </div>
         </div>

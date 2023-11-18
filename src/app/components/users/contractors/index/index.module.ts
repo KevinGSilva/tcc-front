@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IndexComponent } from './index.component';
 import { FormsModule } from '@angular/forms';
+import { StarRatingModule } from 'angular-star-rating';
 
 
 
@@ -11,7 +12,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    StarRatingModule,
   ]
 })
 export class IndexModule { }

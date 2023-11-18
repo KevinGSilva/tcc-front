@@ -1,4 +1,5 @@
 import { Media } from "./media";
+import { ratings_received } from "./ratingsReceived";
 
 export interface User {
     id: number;
@@ -7,7 +8,7 @@ export interface User {
     document: string;
     description: string;
     services: string;
-    phone?: string;
+    phone: string;
     phone_whatsapp?: string;
     link_instagram?: string;
     link_facebook?: string;
@@ -23,4 +24,6 @@ export interface User {
     updated_at: Date;
     thumb?: string;
     url?: string;
+    rating_average: any;
+    ratings_received: Array<ratings_received>
 }

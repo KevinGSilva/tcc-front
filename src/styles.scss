@@ -25,3 +25,45 @@ a {
   width: 100%;
   z-index: 999;
 }
+
+@import '~css-star-rating/css/star-rating.css';
+/* Override Colors by using style rules */
+.rating.color-negative .star-container .star {
+  svg {
+    fill: #ff0;
+  }
+  i {
+    color: #ff0;
+  }
+}
+
+.rating.color-ok .star-container .star {
+  svg {
+    fill: #ff0;
+  }
+  i {
+    color: #ff0;
+  }
+}
+
+.rating.color-positive .star-container .star {
+  svg {
+    fill: #ff0;
+  }
+  i {
+    color: #ff0;
+  }
+}
+
+.rating.color-default .star-container .star {
+  svg {
+    fill: #ff0;
+  }
+  i {
+    color: #ff0;
+  }
+}
+
+.alert {
+  top: 100px
+}

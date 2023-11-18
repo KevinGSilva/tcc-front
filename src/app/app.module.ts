@@ -16,6 +16,7 @@ import { ServicesModule } from './components/users/employees/services/services.m
 import { ProfileContractorModule } from './components/users/contractors/profile-contractor/profile-contractor.module';
 import { IndexModule } from './components/users/contractors/index/index.module';
 import { EmployeeProfileModule } from './components/users/contractors/employee-profile/employee-profile.module';
+import { StarRatingModule } from 'angular-star-rating';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EmployeeProfileModule } from './components/users/contractors/employee-p
     ServicesModule,
     ProfileContractorModule,
     IndexModule,
-    EmployeeProfileModule
+    EmployeeProfileModule,
+    StarRatingModule.forRoot()
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent]

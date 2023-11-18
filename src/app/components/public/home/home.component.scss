@@ -10938,7 +10938,7 @@ header.masthead {
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../../../../assets/img/header.png");
+  background-image: url("../../../../assets/img/header_compress.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -11309,4 +11309,8 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .btn-primary {
   margin-top: 0 !important;
+}
+
+ul {
+  list-style-type: none;
 }

@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                 <li class="nav-item"><a class="nav-link" (click)="scrollToSection('services')">Serviços</a></li>
-                <li class="nav-item"><a class="nav-link" (click)="scrollToSection('about')">Sobre</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" (click)="scrollToSection('about')">Sobre</a></li> -->
                 <li class="nav-item"><a class="nav-link" (click)="scrollToSection('team')">Time</a></li>
                 <li class="nav-item"><a class="btn btn-primary btn-md text-uppercase" href="auth/login">Comece agora</a></li>
             </ul>
@@ -30,7 +30,6 @@
         <div class="row">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Serviços</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
         </div>
         <div class="row">
@@ -39,30 +38,36 @@
                     <i class="fas fa-circle fa-stack-2x" style="color: #0E8D94;"></i>
                     <i class="fas fa-broom fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">E-Commerce</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="my-3">O que é o site</h4>
+                <p class="text-muted">Uma plataforma conveniente e eficaz para anunciar serviços
+                    domésticos e conectar empregadores a profissionais qualificados, simplificando o processo de
+                    contratação para ambas as partes</p>
             </div>
             <div class="col-lg-4 text-center">
                 <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x" style="color: #0E8D94;"></i>
                     <i class="fas fa-users fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">Responsive Design</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="my-3">O que o site oferece</h4>
+                <p class="text-muted">O site oferece recursos e funcionalidades, incluindo a capacidade de criar
+                    anúncios detalhados de serviços, buscar candidatos com base em critérios
+                    específicos, facilitar a comunicação entre empregadores e candidatos, tornando mais fácil encontrar a pessoa certa para atender às
+                    necessidades domésticas.</p>
             </div>
             <div class="col-lg-4 text-center">
                 <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x" style="color: #0E8D94;"></i>
                     <i class="fas fa-search-location fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">Web Security</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="my-3">Como anunciar no site</h4>
+                <p class="text-muted">Para anunciar em nosso site, basta criar uma conta,
+                    preencher os detalhes sobre serviços prestados, definir seus critérios de seleção e publicar.</p>
             </div>
         </div>
     </div>
 </section>
 <!-- About-->
-<section class="page-section" id="about">
+<!-- <section class="page-section" id="about">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">About</h2>
@@ -122,13 +127,12 @@
             </li>
         </ul>
     </div>
-</section>
+</section> -->
 <!-- Team-->
 <section class="page-section bg-light" id="team">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Nosso Time</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
         </div>
         <div class="row">
             <div class="col-lg-6">
@@ -142,15 +146,14 @@
             <div class="col-lg-6">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
-                    <h4>Kevin Silva</h4>
+                    <h4>Kevin Caprino</h4>
                     <p class="text-muted">Lead Desenvolvimento</p>
-                    <a class="btn btn-primary btn-social mx-2" href="https://www.instagram.com/caprininho/" target="_blank" aria-label="Kevin Silva Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
                     <a class="btn btn-primary btn-social mx-2" href="https://www.linkedin.com/in/kevin-silva-5a1885170/" target="_blank" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Para o nosso Trabalho de Conclusão de Curso (TCC), surgiu a ideia de resolver 'problemas' sociais. Pensamos na dificuldade dos prestadores de serviços domésticos em encontrar trabalho frequente, já que geralmente dependem de indicações. Com isso, propomos centralizar esses serviços em uma plataforma. O objetivo é facilitar a divulgação dos serviços, tornando mais ágil para os prestadores oferecerem seus serviços e para os contratantes encontrarem o que precisam.</p></div>
         </div>
     </div>
 </section>
@@ -158,11 +161,105 @@
 <footer class="footer py-4">
     <div class="container">
         <div class="row d-flex justify-content-between">
-            <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+            <div class="col-lg-4 text-lg-start">Copyright &copy; DomesTK 2023</div>
             <div class="col-lg-4 text-lg-end">
-                <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                <a class="link-dark text-decoration-none me-3" href="#!" data-bs-toggle="modal" data-bs-target="#privacyPoliceModal">Política de Privacidade</a>
             </div>
         </div>
     </div>
 </footer>
+  
+<!-- Modal -->
+<div class="modal fade" id="privacyPoliceModal" tabindex="-1" aria-labelledby="privacyPoliceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="privacyPoliceModalLabel">Política de privacidade</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <ol>
+                <strong><li>Introdução</li></strong>
+                <ul>
+                    <li>Bem-vindo à nossa Política de Privacidade. Esta política descreve como coletamos, usamos,
+                        armazenamos e protegemos suas informações pessoais quando você utiliza nosso site. Leia
+                        atentamente esta política para entender como suas informações serão tratadas.
+                    </li>
+                </ul>
+                <strong><li>Informações Coletadas</li></strong>
+                <ul>
+                    Quando você utiliza nosso site, podemos coletar as seguintes informações pessoais:
+                    <ol>
+                        <li>Nome</li>
+                        <li>Endereço de e-mail</li>
+                        <li>CPF</li>
+                        <li>Fotografia do usuário</li>
+                    </ol>
+                </ul>
+                <strong><li>Uso das Informações</li></strong>
+                <ul>
+                    <ol>
+                        <li>
+                            Segurança dos Clientes
+                        </li>
+                        <ul>
+                            A fotografia do usuário será utilizada exclusivamente para aprimorar a segurança de nossos
+                            clientes. Isso pode incluir a verificação da identidade do usuário em determinadas situações,
+                            como durante o processo de autenticação ou em casos de recuperação de conta. A fotografia
+                            também será exibida no perfil do usuário para fins de segurança. Entendemos a importância
+                            de manter suas informações seguras e garantimos que a fotografia será usada apenas para os
+                            fins mencionados acima.
+                        </ul>
+
+                        <li>
+                            Comunicações
+                        </li>
+                        <ul>
+                            Podemos usar seu endereço de e-mail para enviar informações importantes relacionadas ao
+                            uso de nosso site, como atualizações, notificações de conta e outras comunicações
+                            relacionadas ao serviço. Você pode optar por não receber essas comunicações, mas isso pode
+                            afetar sua capacidade de utilizar plenamente os serviços oferecidos em nosso site.
+                        </ul>
+                    </ol>
+                </ul>
+                <strong><li>Compartilhamento de Informações</li></strong>
+                <ul>
+                    Não compartilharemos suas informações pessoais com terceiros, a menos que seja necessário
+                    para cumprir obrigações legais ou proteger nossos direitos, propriedade ou segurança, ou com
+                    seu consentimento explícito.
+                </ul>
+                <strong><li>Armazenamento de Informações</li></strong>
+                <ul>
+                    As informações pessoais que coletamos serão armazenadas em nossos servidores ou em
+                    servidores de terceiros contratados por nós. Faremos esforços para manter suas
+                    informações seguras e protegidas contra acesso não autorizado ou divulgação.
+                </ul>
+                <strong><li>Seus Direitos</li></strong>
+                <ul>
+                    Você tem o direito de acessar, corrigir ou excluir suas informações pessoais a qualquer momento.
+                </ul>
+                <strong><li>Alterações nesta Política</li></strong>
+                <ul>
+                    Podemos atualizar esta política de privacidade de tempos em tempos para refletir as
+                    mudanças em nossas práticas de coleta e uso de informações. Recomendamos que você reveja
+                    esta política periodicamente para se manter informado sobre como suas informações
+                    pessoais estão sendo tratadas.
+                </ul>
+                <strong><li>Contato</li></strong>
+                <ul>
+                    Se você tiver alguma dúvida ou preocupação sobre esta política de privacidade ou sobre o
+                    tratamento de suas informações pessoais, entre em contato conosco:
+                </ul>
+            </ol>
+            <strong><p>E-mail: support@domestk.com</p></strong>
+            <p>
+                Ao utilizar nosso site, você concorda com os termos desta política de privacidade. Se você não
+                concorda com estes termos, por favor, não utilize nosso site.
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+        </div>
+    </div>
+</div>

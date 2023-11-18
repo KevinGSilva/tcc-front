@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { EmployeeProfileComponent } from './employee-profile.component';
 import { NavbarRoutingModule } from '../../navbar/navbar-routing.module';
 import { RouterModule } from '@angular/router';
+import { StarRatingModule } from 'angular-star-rating';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +15,9 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     NavbarRoutingModule,
-    RouterModule
+    RouterModule,
+    StarRatingModule,
+    FormsModule
   ]
 })
 export class EmployeeProfileModule { }

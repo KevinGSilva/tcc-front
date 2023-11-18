@@ -32,10 +32,11 @@ export class UserService {
     );  
   }
 
-  getAllEmployee(search: string, selectedCity = null){
+  getAllEmployee(search: string, selectedCity:any){
     const options = { headers: this.headers };
+    console.log(selectedCity)
 
-    return this.http.get(this.baseUrl + '/employee?services=' + search + '&city=' + selectedCity, options)
+    return this.http.get(`${this.baseUrl}/employee?services=${search}&city=${selectedCity}`, options)
     .pipe(
       map((data: any) => {
           if (data.status != "success") {
@@ -96,6 +97,50 @@ export class UserService {
       map((data: any) => {
           if (data.status != "success") {
               throw new Error(data.message);
+          }
+          return data;
+      })
+    );  
+  }
+
+  createRating(rating: any) {
+    const options = { headers: this.headers };
+    console.log(rating)
+
+    return this.http.post(this.baseUrl + '/rating', JSON.stringify(rating), options)
+    .pipe(
+      map((data: any) => {
+          if (data.status != "success") {
+              throw new Error(data.message);
+          }
+          return data;
+      })
+    );  
+  }
+
+  verifyExistedRating(employeeId: any) {
+    const options = { headers: this.headers };
+
+    return this.http.get(this.baseUrl + '/rating-existed/' + employeeId, options)
+    .pipe(
+      map((data: any) => {
+          if (data.status != "success") {
+              throw new Error(data.message);
+          }
+          return data;
+      })
+    ); 
+  }
+
+  updateRating(rating: any, ratingId: any) {
+    const options = { headers: this.headers };
+    console.log(rating)
+
+    return this.http.put(this.baseUrl + '/rating/' + ratingId, JSON.stringify(rating), options)
+    .pipe(
+      map((data: any) => {
+          if (data.status != "success") {
+            throw new Error(data.message);
           }
           return data;
       })

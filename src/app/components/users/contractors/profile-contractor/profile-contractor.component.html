@@ -1,0 +1,102 @@
+<div class="alert alert-success" role="alert" *ngIf="successAlert">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="message">
+            <i class="fa-solid fa-check me-2"></i>
+            <label for="">Perfil atualizado com sucesso!</label>
+        </div>
+        <button type="button" (click)="clearAlerts()">X</button>
+    </div>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="errorRequest">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="message">
+            <strong>Ops!</strong>
+            <div  *ngIf="validationMessage">
+                    <p>{{validationMessage}}</p>
+            </div>
+            <div *ngFor="let item of errorRequestMessage; let first = first;">
+                <p *ngIf="first">{{item.value}}</p>
+            </div>
+        </div>
+        <button type="button" (click)="clearAlerts()">X</button>
+    </div>
+</div>
+  
+<div class="container">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">Perfil</li>
+            </ol>
+          </nav>
+    </div>
+    <form action="#" [formGroup]="updateForm" *ngIf="updateForm" enctype="multipart/form-data">
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                            <div class="profile-photo">
+                                <div class="thumb">
+                                    <img [src]="user.thumb ? user.thumb : 'assets/img/default/thumb.jpg'" alt="" id="thumb" (click)="changePhoto()" title="Clique para alterar a imagem de perfil">
+                                    <input #thumbInput type="file" name="thumb" style="display: none;" (change)="handleImageUpload($event)" accept="image/*">
+                                    <div (click)="changePhoto()" title="Clique para alterar a imagem de perfil">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nome Completo *</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Nome Completo *" formControlName="name" [ngClass]="{'error': updateForm.get('name')?.invalid && (updateForm.get('name')?.dirty || updateForm.get('name')?.touched)}">
+                                <div *ngIf="updateForm.get('name')?.invalid && (updateForm.get('name')?.dirty || updateForm.get('name')?.touched)"
+                                    class="error-message">
+                                    <!-- Exiba a mensagem de erro aqui -->
+                                    <span *ngIf="updateForm.get('name')?.hasError('required')">Campo
+                                        obrigatório.</span>
+                                    <span *ngIf="updateForm.get('name')?.hasError('minlength')">Nome deve ter no
+                                        mínimo 4 caracteres.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="Email*" class="form-label">Email*</label>
+                                <input type="email" class="form-control" id="Email*" name="email" placeholder="Email*" formControlName="email">
+                                <div *ngIf="updateForm.get('email')?.invalid && (updateForm.get('email')?.dirty || updateForm.get('email')?.touched)"
+                                    class="error-message">
+                                    <!-- Exiba a mensagem de erro aqui -->
+                                    <span *ngIf="updateForm.get('email')?.hasError('required')">Campo
+                                        obrigatório.</span>
+                                    <span *ngIf="updateForm.get('email')?.hasError('minlength')">Nome deve ter no
+                                        mínimo 4 caracteres.</span>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="document" class="form-label">Documento*</label>
+                                <input type="text" class="form-control" id="document" placeholder="Documento*" mask="000.000.000-00" formControlName="document">
+                                <div *ngIf="updateForm.get('document')?.invalid && (updateForm.get('document')?.dirty || updateForm.get('document')?.touched)"
+                                    class="error-message">
+                                    <!-- Exiba a mensagem de erro aqui -->
+                                    <span *ngIf="updateForm.get('document')?.hasError('required')">Campo
+                                        obrigatório.</span>
+                                    <span *ngIf="updateForm.controls['document'].errors"> CPF incorreto.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-primary" (click)="updateProfile()">Atualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,24 @@
+<div class="alert alert-danger" role="alert" *ngIf="errorRequest">
+    <strong>Ops!</strong> {{errorRequestMessage}}.
+</div>
+<div class="login-page">
+    <main>
+
+        <div class="login-block">
+            <img class="logo" src="../../../assets/img/tk.png" alt="Scanfcode">
+            <h1>Informe o código de verificação que foi enviado para seu e-mail!</h1>
+
+            <form action="#" [formGroup]="loginForm">
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="code" placeholder="Código de verificação" formControlName="code" [(ngModel)]="code">
+                    <label for="floatingInput">Código de verificação</label>
+                </div>
+
+                <button class="btn btn-primary btn-block" (click)="postCode()">Enviar</button>
+
+            </form>
+        </div>
+
+    </main>
+</div>

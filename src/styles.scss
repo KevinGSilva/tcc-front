@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background-color:#e5e7ed
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+.error-message span {
+  color: red;
+  font-size: small;
+}
+
+.btn-primary {
+  margin-top: 10px;
+  background: #0e8d94;
+  border-color: #0e8d94;
+}
+
+
+.alert {
+  position: fixed;
+  top: 10px;
+  width: 100%;
+  z-index: 999;
+}
+
+@import '~css-star-rating/css/star-rating.css';
+/* Override Colors by using style rules */
+.rating.color-negative .star-container .star {
+  svg {
+    fill: #ff0;
+  }
+  i {
+    color: #ff0;
+  }
+}
+
+.rating.color-ok .star-container .star {
+  svg {
+    fill: #ff0;
+  }
+  i {
+    color: #ff0;
+  }
+}
+
+.rating.color-positive .star-container .star {
+  svg {
+    fill: #ff0;
+  }
+  i {
+    color: #ff0;
+  }
+}
+
+.rating.color-default .star-container .star {
+  svg {
+    fill: #ff0;
+  }
+  i {
+    color: #ff0;
+  }
+}
+
+.alert {
+  top: 100px
+}
